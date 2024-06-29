@@ -7,5 +7,5 @@ from .models import CustomUser
 class SignUpForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ('username', 'phone_number')
+        fields = ('username', 'phone_number', 'email')
         

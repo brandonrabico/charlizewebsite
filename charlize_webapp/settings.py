@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'appointment',
+    'django_q',
     'landing_page',
     'users',
 ]
@@ -118,7 +120,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT = 'static_root'
 STATICFILES_DIRS = [ 
     BASE_DIR / 'static' 
 ] 
@@ -131,3 +133,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'landing_page'
 LOGOUT_REDIRECT_URL = 'landing_page'
+
+Q_CLUSTER = {
+   'name': 'DjangORM',
+   'workers': 4,
+   'timeout': 90,
+   'retry': 120,
+   'queue_limit': 50,
+   'bulk': 10,
+   'orm': 'default',
+}
+USE_DJANGO_Q_FOR_EMAILS = True
+
+# APPOINTMENT_WEBSITE_NAME = 'Charlize'
+
+APPOINTMENT_PAYMENT_URL = None
+APPOINTMENT_THANK_YOU_URL = None
+APPOINTMENT_BUFFER_TIME = 0  # 🆕 Minutes between now and the first available slot for the current day (doesn't affect future dates)
+APPOINTMENT_SLOT_DURATION = 30  # Duration of each appointment slot in minutes
+APPOINTMENT_LEAD_TIME = (9, 0)  # Start time of the appointment slots (in 24-hour format)
+APPOINTMENT_FINISH_TIME = (16, 30)  # End time of the appointment slots (in 24-hour format)
