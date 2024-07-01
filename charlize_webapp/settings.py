@@ -143,9 +143,12 @@ Q_CLUSTER = {
    'bulk': 10,
    'orm': 'default',
 }
+
+APP_DEFAULT_FROM_EMAIL = 'kekiday616@dcbin.com'
+
 USE_DJANGO_Q_FOR_EMAILS = True
 
-# APPOINTMENT_WEBSITE_NAME = 'Charlize'
+APPOINTMENT_WEBSITE_NAME = 'Charlize'
 
 APPOINTMENT_PAYMENT_URL = None
 APPOINTMENT_THANK_YOU_URL = None

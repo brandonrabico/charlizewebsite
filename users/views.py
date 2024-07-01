@@ -6,7 +6,7 @@ from appointment.models import Appointment
 
 @login_required
 def client_dashboard(request):
-    return render(request, 'users/dashboard.html')
+    return render(request, 'dashboard.html')
     
 class SignupView(CreateView):
     template_name = 'registration/signup.html'
