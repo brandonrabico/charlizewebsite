@@ -2,20 +2,11 @@
 
 {% block content %}
 <h1>{{request.user.username}}'s Dashboard</h1>
+
+{% for appointments in appointments %}
+<p>{{appointments.client}} {{appointments.appointment_request.service}} <small>{{appointments.appointment_request.date}}</small></p>
+{% endfor %}
 <a href="/appointment/request/1">Request an appointment</a>
+
 {% endblock content %}
 
-{% block customCSS %}
-{% endblock %}
-
-{% block title %}
-{% endblock %}
-
-{% block description %}
-{% endblock %}
-
-{% block body %}
-{% endblock %}
-
-{% block customJS %}
-{% endblock %}
